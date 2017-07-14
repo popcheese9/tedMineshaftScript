@@ -83,4 +83,56 @@ if preDist == 0 then
 		turtleTurnAround()
 	end
 else
-	
+	for i=1, predist do
+		turtle.down()
+	end
+	for i=1,digDepth/2 do
+		for x=1,(i-1)*2 do
+			turtle.down()
+		end
+	turtle.digDown()
+	turtle.down()
+		for x=1,(digWidth/2)-1 do
+			turtleRow()
+			turtleRight()
+			turtleRow()
+			turtleLeft()
+		end
+		turtleRow()
+		turtleRight()
+		turtleRow()
+		turtleTurnAround()
+		turtle.digDown()
+		turtle.down()
+		for x=1, (digWidth/2)-1 do
+			turtleRow()
+			turtleLeft()
+			turtleRow()
+			turtleRight()
+		end
+		turtleRow()
+		turtleLeft()
+		turtleRow()
+		turtleTurnAround()
+		print(i*2 .. " finished out of " .. digDepth)
+		-- turtle.up()
+		turtle.up()
+		for x=1,i*2+preDist do
+			turtle.up()
+		end
+		turtle.turnLeft()
+		-- turtle.forward()
+		for x=1,16 do
+		  turtle.select(x)
+		  turtle.drop()
+		end
+		turtle.turnRight()
+		turtle.turnRight()
+		-- turtle.forward()
+		turtle.down()
+		-- turtle.down()
+		turtle.turnRight()
+		turtle.suck(64)
+		turtle.refuel()
+		turtleTurnAround()
+	end
